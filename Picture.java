@@ -35,17 +35,18 @@ public class Picture
     public void draw()
     {
         if(!drawn) {
+            wall.makeVisible();
             wall.moveHorizontal(-140);
             wall.moveVertical(20);
             wall.changeSize(120);
             wall.changeColor("blue");
-            wall.makeVisible();
             
+            window.makeVisible();
             window.changeColor("black");
             window.moveHorizontal(-120);
             window.moveVertical(40);
             window.changeSize(40);
-            window.makeVisible();
+            
     
             roof.changeSize(60, 180);
             roof.moveHorizontal(20);
