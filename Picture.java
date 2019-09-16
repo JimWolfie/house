@@ -14,8 +14,10 @@ public class Picture
     private Square wall;
     private Square window;
     private Triangle roof;
-    private Circle sun;
+    private Circle sun1;
+    private Circle sun2;
     private boolean drawn;
+    private Person person1; 
 
     /**
      * Constructor for objects of class Picture
@@ -25,7 +27,9 @@ public class Picture
         wall = new Square();
         window = new Square();
         roof = new Triangle();  
-        sun = new Circle();
+        sun1 = new Circle();
+        sun2 = new Circle();
+        person1 = new Person();
         drawn = false;
     }
 
@@ -53,11 +57,21 @@ public class Picture
             roof.moveVertical(-60);
             roof.makeVisible();
     
-            sun.changeColor("yellow");
-            sun.moveHorizontal(100);
-            sun.moveVertical(-40);
-            sun.changeSize(80);
-            sun.makeVisible();
+            sun1.changeColor("blue");
+            sun1.moveHorizontal(100);
+            sun1.moveVertical(-40);
+            sun1.changeSize(80);
+            sun1.makeVisible();
+            
+            sun2.changeColor("yellow");
+            sun2.moveHorizontal(0);
+            sun2.moveVertical(0);
+            sun2.changeSize(81);
+            sun2.makeVisible();
+            
+            person1.moveHorizontal(300);
+            
+            
             drawn = true;
         }
     }
@@ -70,7 +84,8 @@ public class Picture
         wall.changeColor("black");
         window.changeColor("white");
         roof.changeColor("black");
-        sun.changeColor("black");
+        sun1.changeColor("black");
+        sun2.changeColor("black");
     }
 
     /**
@@ -81,6 +96,16 @@ public class Picture
         wall.changeColor("red");
         window.changeColor("black");
         roof.changeColor("green");
-        sun.changeColor("yellow");
+        sun1.changeColor("yellow");
+        sun2.changeColor("blue");
     }
+    
+    public void sunset()
+    {
+        sun2.makeInvisible();
+        sun1.slowMoveVertical(300);
+        person1.makeVisible();
+        person1.slowMoveHorizontal(-300);
+        person1.makeInvisible();
+    } 
 }
